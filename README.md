@@ -3,7 +3,7 @@
 > [Aecheon Jung<sup>1*](https://github.com/kasurashan), [Seunghwan Lee<sup>1](https://github.com/nomis911), [Dongyoon Han<sup>2</sup>&dagger;](https://dongyoonhan.github.io/), [Sungeun Hong<sup>1</sup>&dagger;](https://www.csehong.com/) <br>
 > <sup>1</sup>[Sungkyunkwan University](https://www.skku.edu/eng/index.do), <sup>2</sup>[NAVER AI LAB](https://naver-career.gitbook.io/en/teams/clova-cic/ai-lab)
 
-![image](https://github.com/user-attachments/assets/0e7e8f5f-e947-4f37-91df-90087a525a39)
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/0e7e8f5f-e947-4f37-91df-90087a525a39">
 
 
 ### Abstract
