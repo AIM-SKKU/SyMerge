@@ -10,7 +10,10 @@
 ### Abstract
 >Traditional model merging methods for multi-task learning (MTL) address task conflicts with straightforward strategies such as weight averaging, sign consensus, or minimal test-time adjustments. This presumably counts on the assumption that a merged encoder still retains abundant task knowledge from individual encoders, implying that its shared representation is sufficiently general across tasks. However, our insight is that adding just a single trainable task-specific layer further can bring striking performance gains, as demonstrated by our pilot study. Motivated by this finding, we propose Model Tinting, a new test-time approach that introduces a single task-specific layer for each task as trainable adjustments. Our method jointly trains merging coefficients and task-specific layers, which effectively reduces task conflicts with minimal additional costs. Additionally, we propose a sampling method that utilizes the difference in confidence levels of both merged and individual encoders. Extensive experiments demonstrate our method's effectiveness, which achieves state-of-the-art performance across both computer vision and natural language processing tasks and significantly surpasses prior works. Our code will be open-sourced.
 
+
+<p align="center">
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/45887493-2520-4acb-973b-ec4b0cfdd8ef">
+</p>
 
 ### Updates
 * (2024/xx/xx): [Preprint] has been uploaded.
