@@ -21,7 +21,7 @@
 * (2024/xx/xx): [Preprint] has been uploaded.
 
 ### Acknowledgement
-Our implementation references the code below, thanks to the \
-- https://github.com/mlfoundations/task_vectors \
-- https://github.com/EnnengYang/AdaMerging \
-- https://github.com/nik-dim/tall_masks \
+Our implementation references the code below, thanks to them.
+- https://github.com/mlfoundations/task_vectors 
+- https://github.com/EnnengYang/AdaMerging 
+- https://github.com/nik-dim/tall_masks 
