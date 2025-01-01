@@ -18,7 +18,7 @@
 ***Model Tinting*** is a test-time method for merging multiple fine-tuned models by introducing a single trainable layer for each task. This layer adapts task-specific information from the task-agnostic representations of the merged encoder. The method supports using any layer for task adjustments, as demonstrated by additional results in the above figure. 
 
 ### Updates
-* (2024/xx/xx): [Preprint] has been uploaded.
+* (2024/12/26): [Preprint](https://arxiv.org/pdf/2412.19098v1) has been uploaded.
 
 ### Acknowledgement
 We acknowledge the following code, which served as a reference for our implementation.
