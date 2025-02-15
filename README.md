@@ -20,7 +20,6 @@
 ### Checkpoints
 * All ViT checkpoints for open_clip==2.24.0 [Link](https://huggingface.co/kasurashan/checkpoints_tint)
 * ViT-B/32 14,20 tasks checkpoints for open_clip==2.0.2 [Link](https://huggingface.co/kasurashan/checkpoints_tint_2-0-2)
-* All ViT state_dict files [Link](https://huggingface.co/kasurashan/checkpoints_tint_state_dict)
 
 ### Updates
 * (2024/12/26): [Preprint](https://arxiv.org/pdf/2412.19098v1) has been uploaded.
