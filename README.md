@@ -21,9 +21,13 @@
 ### Checkpoints
 * ViT-B/32 8,14,20 tasks checkpoints for open_clip==2.24.0 [Link](https://huggingface.co/kasurashan/checkpoints_tint)
 * ViT-B/32 8,14,20 tasks checkpoints for open_clip==2.0.2 [Link](https://huggingface.co/kasurashan/checkpoints_tint_2-0-2)
+  - `git lfs install`
+  - `git clone https://huggingface.co/kasurashan/checkpoints_tint` 
+  - `git clone https://huggingface.co/kasurashan/checkpoints_tint_2-0-2`
 * ViT-B/16 8 tasks and ViT-L/14 8 tasks checkpoints for open_clip==2.0.2 [Link](https://github.com/mlfoundations/task_vectors?tab=readme-ov-file#checkpoints)
 
 ### Updates
+* (2025/03/09): [Preprint](https://arxiv.org/abs/2412.19098) has been updated (additional experiments on dense prediction tasks).
 * (2024/12/26): [Preprint](https://arxiv.org/abs/2412.19098) has been uploaded.
 
 ### Acknowledgement
