@@ -1,4 +1,4 @@
-## [Why Train Everything? Tint a Single Layer for Multi-task Model Merging](https://arxiv.org/pdf/2412.19098v1)
+## [Why Train Everything? Tint a Single Layer for Multi-task Model Merging](https://arxiv.org/abs/2412.19098)
 
 > [Aecheon Jung<sup>1*](https://github.com/kasurashan), [Seunghwan Lee<sup>1](https://github.com/nomis911), [Dongyoon Han<sup>2</sup>&dagger;](https://dongyoonhan.github.io/), [Sungeun Hong<sup>1</sup>&dagger;](https://www.csehong.com/) <br>
 > <sup>1</sup>[Sungkyunkwan University](https://www.skku.edu/eng/index.do), <sup>2</sup>[NAVER AI LAB](https://naver-career.gitbook.io/en/teams/clova-cic/ai-lab)
@@ -24,7 +24,7 @@
 * ViT-B/16 8 tasks and ViT-L/14 8 tasks checkpoints for open_clip==2.0.2 [Link](https://github.com/mlfoundations/task_vectors?tab=readme-ov-file#checkpoints)
 
 ### Updates
-* (2024/12/26): [Preprint](https://arxiv.org/pdf/2412.19098v1) has been uploaded.
+* (2024/12/26): [Preprint](https://arxiv.org/abs/2412.19098) has been uploaded.
 
 ### Acknowledgement
 We acknowledge the following code, which served as a reference for our implementation.
