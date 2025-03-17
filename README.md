@@ -4,7 +4,7 @@
 > <sup>1</sup>[Sungkyunkwan University](https://www.skku.edu/eng/index.do), <sup>2</sup>[NAVER AI LAB](https://naver-career.gitbook.io/en/teams/clova-cic/ai-lab)
 
 <p align="center">
-<img width="600" alt="image" src=![image](https://github.com/user-attachments/assets/95dfec65-d1e0-4a97-9359-e252f6470192)
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/95dfec65-d1e0-4a97-9359-e252f6470192")
 >
 </p>
 
