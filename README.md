@@ -43,5 +43,6 @@ Dependencies : refer to [task vectors](https://github.com/mlfoundations/task_vec
 We acknowledge the following code, which served as a reference for our implementation.
 - https://github.com/mlfoundations/task_vectors 
 - https://github.com/EnnengYang/AdaMerging
+- https://github.com/EnnengYang/RepresentationSurgery
 - https://github.com/yule-buaa/mergelm
 - https://github.com/harveyhuang18/emr_merging
