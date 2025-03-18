@@ -11,6 +11,12 @@ from task_vectors import TaskVector
 from eval import eval_single_dataset, eval_single_dataset_head, eval_single_dataset_preprocess_head, eval_single_dataset_preprocess_head_with_ece, eval_single_dataset_preprocess_mapping_head
 from args import parse_arguments
 from src.merging_cofficient import get_merging_cofficients
+import datetime
+
+now = str(datetime.datetime.now())
+pth_save_path = f"/root/workspace/arithmetic/ModelTinting/pth_save_{now}"
+if not os.path.exists(pth_save_path):
+    os.makedirs(pth_save_path)
 
 def create_log_dir(path, filename='log.txt'):
     import logging
@@ -439,14 +445,6 @@ for dataset_name in exam_datasets:
 
     Total_ACC += metrics['top1']
 
-
-
-import datetime
-
-now = str(datetime.datetime.now())
-pth_save_path = f"/root/workspace/arithmetic/AdaMerging/pth_save_new_ADAsurgery_20task{args.model}_{args.losstype}_cls{args.classifier_train}_prior{args.prior}_noclamp{args.noclamp}_sparse{args.sparse}{args.l1coef}_clsinitrand{args.randominitclassifier}_adainit{args.adastart}_onlycls{args.onlyclassifiertrain}{now}"
-if not os.path.exists(pth_save_path):
-    os.makedirs(pth_save_path)
 
 torch.save(adamerging_mtl_model.state_dict(), f'{pth_save_path}/_0.pth')
 
