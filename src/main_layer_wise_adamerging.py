@@ -3,7 +3,7 @@ import os
 import time
 import sys
 import tqdm
-sys.path.append('/root/workspace/arithmetic/AdaMerging')
+sys.path.append('/root/workspace/arithmetic/ModelTinting')
 import random
 import math
 import torch
@@ -90,11 +90,11 @@ if args.twodataset == 'type1':
     exam_datasets = ['Cars', 'MNIST'] # SUN397 | Cars | RESISC45 | EuroSAT | SVHN | GTSRB | MNIST | DTD
     print(exam_datasets)
 
-source_root_path = '/root/workspace/arithmetic/AdaMerging'
+source_root_path = '/root/workspace/arithmetic/ModelTinting'
 args.data_location = '/root/datasets/multitask'
 args.model = model
 args.save = source_root_path+'/checkpoints/' + model
-args.logs_path = '/root/workspace/arithmetic/AdaMerging/logs/' + model
+args.logs_path = '/root/workspace/arithmetic/ModelTinting/logs/' + model
 pretrained_checkpoint = source_root_path+'/checkpoints/'+model+'/zeroshot.pt'
 
 str_time_ = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
