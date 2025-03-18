@@ -8,7 +8,7 @@
 >
 </p>
 
-### Abstract
+## Abstract
 >Model merging integrates independently fine-tuned models into a single multi-task model, offering a flexible alternative to joint training. However, many existing model merging methods introduce additional task-specific components, increasing complexity and requiring extra modifications. We propose Model Tinting, a lightweight yet highly effective approach that improves model merging by updating just a single layer, accounting for as low as 0.5% of total parameters. Our key observation is that explicit task-specific modules are not necessary; instead, subtle adjustments to a single layer can effectively capture task-specific variations within the merged model while maintaining generalization. We introduce a confidence-based filtering mechanism to alleviate the impact of unreliable predictions from individual models on the merged model. Extensive experiments across vision and NLP tasks demonstrate that Model Tinting achieves state-of-the-art performance, even in challenging dense prediction tasks.
 
 
@@ -18,7 +18,10 @@
 
 ***Model Tinting*** is a test-time method for merging multiple fine-tuned models by introducing a single trainable layer for each task. This layer adapts task-specific information from the task-agnostic representations of the merged encoder. The method supports using any layer for task adjustments, as demonstrated by additional results in the above figure. 
 
-### Checkpoints
+## Datasets
+Refer to datasets in the [Tall Masks](https://github.com/nik-dim/tall_masks?tab=readme-ov-file#datasets).
+
+## Checkpoints
 * ViT-B/32 8,14,20 tasks checkpoints for open_clip==2.24.0 [Link](https://huggingface.co/kasurashan/checkpoints_tint)
 * ViT-B/32 8,14,20 tasks checkpoints for open_clip==2.0.2 [Link](https://huggingface.co/kasurashan/checkpoints_tint_2-0-2)
   - `git lfs install`
@@ -26,11 +29,19 @@
   - `git clone https://huggingface.co/kasurashan/checkpoints_tint_2-0-2`
 * ViT-B/16 8 tasks and ViT-L/14 8 tasks checkpoints for open_clip==2.0.2 [Link](https://github.com/mlfoundations/task_vectors?tab=readme-ov-file#checkpoints)
 
-### Updates
+## Train
+Model Tinting \
+`sh src/train.sh`
+
+Model Tinting++ \
+`sh src/train_plus.sh`
+
+
+## Updates
 * (2025/03/09): [Preprint](https://arxiv.org/abs/2412.19098) has been updated (additional experiments on dense prediction tasks).
 * (2024/12/26): [Preprint](https://arxiv.org/abs/2412.19098) has been uploaded.
 
-### Acknowledgement
+## Acknowledgement
 We acknowledge the following code, which served as a reference for our implementation.
 - https://github.com/mlfoundations/task_vectors 
 - https://github.com/EnnengYang/AdaMerging
