@@ -30,6 +30,7 @@ Refer to datasets in the [Tall Masks](https://github.com/nik-dim/tall_masks?tab=
 * ViT-B/16 8 tasks and ViT-L/14 8 tasks checkpoints for open_clip==2.0.2 [Link](https://github.com/mlfoundations/task_vectors?tab=readme-ov-file#checkpoints)
 
 ## Train
+Dependencies : refer to [task vectors](https://github.com/mlfoundations/task_vectors) \
 Model Tinting \
 `sh src/train.sh`
 
