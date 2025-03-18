@@ -1,4 +1,4 @@
-export PYTHONPATH="/root/workspace/arithmetic/AdaMerging/src"
+export PYTHONPATH="/root/workspace/arithmetic/ModelTinting/src"
 CUDA_VISIBLE_DEVICES=0 python /root/workspace/arithmetic/AdaMerging/src/main_layer_wise_adamerging.py \
     --losstype crosspseudoconf \
     --model ViT-B-32 \
