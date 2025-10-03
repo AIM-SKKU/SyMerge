@@ -1,22 +1,15 @@
-## [Why Train Everything? Tint a Single Layer for Multi-task Model Merging](https://arxiv.org/abs/2412.19098)
+## [SyMerge: From Non-Interference to Synergistic Merging via Single-Layer Adaptation](https://arxiv.org/abs/2412.19098)
 
 > [Aecheon Jung<sup>1*](https://github.com/kasurashan), [Seunghwan Lee<sup>1](https://github.com/nomis911), [Dongyoon Han<sup>2</sup>&dagger;](https://dongyoonhan.github.io/), [Sungeun Hong<sup>1</sup>&dagger;](https://www.csehong.com/) <br>
 > <sup>1</sup>[Sungkyunkwan University](https://www.skku.edu/eng/index.do), <sup>2</sup>[NAVER AI LAB](https://naver-career.gitbook.io/en/teams/clova-cic/ai-lab)
 
-<p align="center">
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/95dfec65-d1e0-4a97-9359-e252f6470192")
->
-</p>
+[![paper](https://img.shields.io/badge/arXiv-Paper-red.svg)](https://arxiv.org/abs/2412.19098)
+[![Project Page](https://img.shields.io/badge/Project-Page-blue?logo=github)](https://aim-skku.github.io/SyMerge/)
+
 
 ## Abstract
->Model merging integrates independently fine-tuned models into a single multi-task model, offering a flexible alternative to joint training. However, many existing model merging methods introduce additional task-specific components, increasing complexity and requiring extra modifications. We propose Model Tinting, a lightweight yet highly effective approach that improves model merging by updating just a single layer, accounting for as low as 0.5% of total parameters. Our key observation is that explicit task-specific modules are not necessary; instead, subtle adjustments to a single layer can effectively capture task-specific variations within the merged model while maintaining generalization. We introduce a confidence-based filtering mechanism to alleviate the impact of unreliable predictions from individual models on the merged model. Extensive experiments across vision and NLP tasks demonstrate that Model Tinting achieves state-of-the-art performance, even in challenging dense prediction tasks.
+>Model merging offers an efficient alternative to multi-task learning by combining independently fine-tuned models, but most prior approaches focus mainly on avoiding task interference. We argue instead that the real potential of merging lies in achieving synergy, where tasks enhance one another. Our intuition comes from a pilot study showing that when a classifier trained on one task is paired with the encoder of another, the resulting cross-task performance strongly predicts merge quality. Moreover, adapting even a single task-specific layer can substantially improve this compatibility, suggesting a simple yet powerful lever for synergy. Building on this insight, we introduce SyMerge, a lightweight framework that jointly optimizes one task-specific layer and merging coefficients. To ensure stability without labels, SyMerge employs a robust self-labeling strategy guided by expert model predictions, avoiding the pitfalls of entropy-based adaptation. This minimalist yet principled design achieves state-of-the-art results across vision, dense prediction, and NLP benchmarks, while also producing adapted layers that transfer effectively to other merging methods.
 
-
-<p align="center">
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/45887493-2520-4acb-973b-ec4b0cfdd8ef">
-</p>
-
-***Model Tinting*** is a test-time method for merging multiple fine-tuned models by introducing a single trainable layer for each task. This layer adapts task-specific information from the task-agnostic representations of the merged encoder. The method supports using any layer for task adjustments, as demonstrated by additional results in the above figure. 
 
 ## Datasets
 Refer to datasets in the [Tall Masks](https://github.com/nik-dim/tall_masks?tab=readme-ov-file#datasets).
@@ -31,18 +24,11 @@ Refer to datasets in the [Tall Masks](https://github.com/nik-dim/tall_masks?tab=
 
 ## Train
 Dependencies : refer to [task vectors](https://github.com/mlfoundations/task_vectors) \
-**Model Tinting** : `sh src/train.sh` \
-**Model Tinting++** : `sh src/train_plus.sh`
+run SyMerge: `sh src/train.sh`
 
-
-## Updates
-* (2025/03/09): [Preprint](https://arxiv.org/abs/2412.19098) has been updated (additional experiments on dense prediction tasks).
-* (2024/12/26): [Preprint](https://arxiv.org/abs/2412.19098) has been uploaded.
 
 ## Acknowledgement
 We acknowledge the following code, which served as a reference for our implementation.
 - https://github.com/mlfoundations/task_vectors 
 - https://github.com/EnnengYang/AdaMerging
 - https://github.com/EnnengYang/RepresentationSurgery
-- https://github.com/yule-buaa/mergelm
-- https://github.com/harveyhuang18/emr_merging
