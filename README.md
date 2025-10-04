@@ -24,7 +24,7 @@ Refer to datasets in the [Tall Masks](https://github.com/nik-dim/tall_masks?tab=
 
 ## Train
 Dependencies : refer to [task vectors](https://github.com/mlfoundations/task_vectors) \
-`cd src' \
+`cd src` \
 run SyMerge: `bash train_symerge.sh`
 
 
