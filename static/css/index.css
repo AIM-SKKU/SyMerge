@@ -175,3 +175,12 @@ body {
     max-width: 100%;
   }
 }
+
+/* On small screens, show full title without truncation */
+@media (max-width: 768px) {
+  .publication-title {
+    display: block;       /* disables -webkit-line-clamp */
+    overflow: visible;    /* allow full wrapping */
+    white-space: normal;  /* ensure wrapping behavior */
+  }
+}
