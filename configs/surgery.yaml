@@ -1,0 +1,37 @@
+model: ViT-B-32
+exam_datasets:
+  - SUN397
+  - Cars
+  - RESISC45
+  - EuroSAT
+  - SVHN
+  - GTSRB
+  - MNIST
+  - DTD   # 8 tasks
+  # - CIFAR100
+  # - FER2013
+  # - Flowers102
+  # - OxfordIIITPet
+  # - PCAM
+  # - STL10   # 14 tasks
+  # - CIFAR10
+  # - EMNIST
+  # - FashionMNIST
+  # - Food101
+  # - KMNIST
+  # - RenderedSST2   # 20 tasks
+
+
+
+data_location: /root/datasets/multitask
+checkpoints_root: /root/workspace/arithmetic/AdaMerging/checkpoints
+logs_path: ../logs
+pretrained_checkpoint: zeroshot.pt
+epochs: 1000
+batch_size: 16
+use_amp: true
+losstype: l1feature
+prior: 0.3
+classifier_train: false
+surgery: true
+adastart: true   # Surgery w/ ada (8tasks)

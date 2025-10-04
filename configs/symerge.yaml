@@ -1,0 +1,35 @@
+model: ViT-B-32
+exam_datasets:
+  - SUN397
+  - Cars
+  - RESISC45
+  - EuroSAT
+  - SVHN
+  - GTSRB
+  - MNIST
+  - DTD   # 8 tasks
+  # - CIFAR100
+  # - FER2013
+  # - Flowers102
+  # - OxfordIIITPet
+  # - PCAM
+  # - STL10   # 14 tasks
+  # - CIFAR10
+  # - EMNIST
+  # - FashionMNIST
+  # - Food101
+  # - KMNIST
+  # - RenderedSST2   # 20 tasks
+
+
+
+data_location: /root/datasets/multitask
+checkpoints_root: /root/workspace/arithmetic/AdaMerging/checkpoints
+logs_path: ../logs
+pretrained_checkpoint: zeroshot.pt
+epochs: 500
+batch_size: 32
+use_amp: true
+losstype: crosspseudoconf
+prior: 0.3
+classifier_train: true
