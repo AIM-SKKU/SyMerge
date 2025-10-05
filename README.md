@@ -6,6 +6,7 @@
 [![paper](https://img.shields.io/badge/arXiv-Paper-red.svg)](https://arxiv.org/abs/2412.19098)
 [![Project Page](https://img.shields.io/badge/Project-Page-blue?logo=github)](https://aim-skku.github.io/SyMerge/)
 
+![](https://raw.githubusercontent.com/AIM-SKKU/SyMerge/refs/heads/main/symerge-plot.png)
 
 ## Abstract
 >Model merging offers an efficient alternative to multi-task learning by combining independently fine-tuned models, but most prior approaches focus mainly on avoiding task interference. We argue instead that the real potential of merging lies in achieving synergy, where tasks enhance one another. Our intuition comes from a pilot study showing that when a classifier trained on one task is paired with the encoder of another, the resulting cross-task performance strongly predicts merge quality. Moreover, adapting even a single task-specific layer can substantially improve this compatibility, suggesting a simple yet powerful lever for synergy. Building on this insight, we introduce SyMerge, a lightweight framework that jointly optimizes one task-specific layer and merging coefficients. To ensure stability without labels, SyMerge employs a robust self-labeling strategy guided by expert model predictions, avoiding the pitfalls of entropy-based adaptation. This minimalist yet principled design achieves state-of-the-art results across vision, dense prediction, and NLP benchmarks, while also producing adapted layers that transfer effectively to other merging methods.
