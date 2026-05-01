@@ -6,7 +6,7 @@
         content="SyMerge: From Non-Interference to Synergistic Merging via Single-Layer Adaptation">
   <meta name="keywords" content="Model Merging">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SyMerge: From Non-Interference to Synergistic Merging via Single-Layer Adaptation</title>
+  <title>SyMerge (ICML 2026): From Non-Interference to Synergistic Merging via Single-Layer Adaptation</title>
 
   
 
@@ -48,6 +48,10 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">SyMerge: From Non-Interference to <br> Synergistic Merging via Single-Layer Adaptation</h1>
+          <p class="venue-badge">Accepted to ICML 2026</p>
+          <p class="hero-tagline">
+            SyMerge reframes model merging from avoiding interference to inducing synergy through single-layer adaptation and expert-guided self-labeling.
+          </p>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://sites.google.com/view/kasurashan">Aecheon Jung</a><sup>1</sup>,</span>
@@ -71,29 +75,15 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2412.19098"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                      <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>arXiv</span>
                 </a>
               </span>
-
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://www.youtube.com/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
-              
-              <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/AIM-SKKU/SyMerge"
                    class="external-link button is-normal is-rounded is-dark">
@@ -102,9 +92,20 @@
                   </span>
                   <span>Code</span>
                   </a>
-              </span> 
+              </span>
+              <span class="link-block">
+                <a href="#bibtex"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-quote-right"></i>
+                  </span>
+                  <span>BibTeX</span>
+                </a>
+              </span>
             </div>
-
+            <p class="hero-note is-size-6">
+              Updated for the accepted paper with robustness under corruption, stronger cross-task alignment evidence, and results beyond shared initialization.
+            </p>
           </div>
         </div>
       </div>
@@ -115,7 +116,6 @@
 
 <section class="section" style="padding-top: 0.5rem;">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <figure class="image" style="margin: 0 0 0.75rem 0;">
@@ -127,8 +127,28 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Model merging offers an efficient alternative to multi-task learning by combining independently fine-tuned models, but most prior approaches focus mainly on avoiding task interference. We argue instead that the real potential of merging lies in achieving synergy, where tasks enhance one another. Our intuition comes from a pilot study showing that when a classifier trained on one task is paired with the encoder of another, the resulting cross-task performance strongly predicts merge quality. Moreover, adapting even a single task-specific layer can substantially improve this compatibility, suggesting a simple yet powerful lever for synergy. Building on this insight, we introduce SyMerge, a lightweight framework that jointly optimizes one task-specific layer and merging coefficients. To ensure stability without labels, SyMerge employs a robust self-labeling strategy guided by expert model predictions, avoiding the pitfalls of entropy-based adaptation. This minimalist yet principled design achieves state-of-the-art results across vision, dense prediction, and NLP benchmarks, while also producing adapted layers that transfer effectively to other merging methods.
+            Model merging offers an efficient alternative to multi-task learning by combining independently fine-tuned models into a single model, yet most existing approaches stop at avoiding task interference. SyMerge instead targets positive synergy, where tasks actively improve one another through better cross-task compatibility. We show that cross-task performance strongly predicts merge quality, and that adapting only a single task-specific layer is sufficient to induce this alignment. Building on this observation, SyMerge jointly optimizes one task-specific layer and the merging coefficients using expert-guided self-labeling, yielding a more stable objective than entropy minimization on unlabeled target data. The resulting method achieves state-of-the-art performance across vision, dense prediction, and NLP benchmarks, remains robust under corruption, and even succeeds when merging models from different initializations.
           </p>
+        </div>
+        <div class="columns is-multiline highlights-row">
+          <div class="column is-4">
+            <div class="info-card">
+              <p class="info-label">Goal</p>
+              <p>Move model merging beyond non-interference and explicitly optimize for task synergy.</p>
+            </div>
+          </div>
+          <div class="column is-4">
+            <div class="info-card">
+              <p class="info-label">Mechanism</p>
+              <p>Jointly train merging coefficients and one task-specific layer with expert-guided self-labels.</p>
+            </div>
+          </div>
+          <div class="column is-4">
+            <div class="info-card">
+              <p class="info-label">Outcome</p>
+              <p>Strong results across multiple domains, better shift robustness, and successful merging across disjoint basins.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -136,25 +156,41 @@
 </section>
 
 
- 
-
-
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Motivation</h2>
+    <h2 class="title is-3">Why SyMerge?</h2>
+    <p class="section-note">
+      The accepted paper sharpens the case for SyMerge around three observations: training-free merging is fragile under shift, cross-task compatibility predicts merge quality, and small adaptation can already unlock synergy.
+    </p>
     <div class="columns is-vcentered">
       <div class="column is-7">
         <div class="content">
-          <h3 class="title is-4">Rethinking Cross-task Performance</h3>
+          <h3 class="title is-4">Training-free merging is brittle under corruption</h3>
           <p>
-            We hypothesize that a model's cross-task performance closely relates to its merging performance.
-            In a preliminary study on 20 vision tasks with ViT-B/32, we observe a strong positive correlation
-            (r = 0.863, p < 0.001) between average cross-task performance and average merge performance.
+            A first motivation in the final paper is robustness. When several task datasets are intentionally corrupted, training-free merging methods degrade sharply, exposing how brittle purely data-agnostic merging can be under realistic distribution shift.
           </p>
           <p>
-            Concretely, given a model pair (A, B), we evaluate: (1) cross-task performance by attaching A's encoder to B's
-            classifier and evaluating on B's task, and (2) merging performance by weight-averaging the two encoders and
-            evaluating the merged encoder on B's task.
+            This motivates test-time adaptation on unlabeled target data. SyMerge keeps that adaptive flavor, but replaces unstable entropy minimization with a more reliable expert-guided self-labeling objective.
+          </p>
+        </div>
+      </div>
+      <div class="column is-5">
+        <figure class="image">
+          <img src="./static/images/corruption.png"
+               alt="Performance of training-free and adaptive merging methods under corruption"
+               class="obs-img" style="width:90%; display:block; margin:0 auto;" />
+        </figure>
+      </div>
+    </div>
+    <div class="columns is-vcentered" style="margin-top: 1.5rem;">
+      <div class="column is-7">
+        <div class="content">
+          <h3 class="title is-4">Cross-task performance predicts merge quality</h3>
+          <p>
+            We hypothesize that a model's cross-task performance closely relates to its merging performance. In a preliminary study on 20 vision tasks with ViT-B/32, we observe a strong positive correlation (r = 0.863, p &lt; 0.001) between average cross-task performance and average merge performance.
+          </p>
+          <p>
+            Concretely, given a model pair (A, B), we evaluate cross-task performance by attaching A's encoder to B's classifier and merge quality by evaluating the merged encoder on B's task. The strong correlation suggests that better functional alignment is a reliable signal for better merging.
           </p>
         </div>
       </div>
@@ -169,16 +205,12 @@
     <div class="columns is-vcentered" style="margin-top: 1.5rem;">
       <div class="column is-7">
         <div class="content">
-          <h3 class="title is-4">Classifier Training Unlocks Task Synergy</h3>
+          <h3 class="title is-4">A small amount of adaptation is enough</h3>
           <p>
-            We compare a baseline that pairs each task’s original classifier with its native encoder against a variant
-            that replaces the classifier with one adapted on a fixed merged encoder and evaluates it alongside another
-            task’s encoder. This two-step protocol provides a direct measure of functional alignment across tasks.
+            Our pilot study compares a baseline that pairs each task's original classifier with its native encoder against a variant that retrains the classifier on a fixed merged encoder and then evaluates it with another task's encoder.
           </p>
           <p>
-            The protocol consistently improves cross-task performance over the baseline, showing that modest adaptation
-            can substantially boost cross-task compatibility—a reliable signal for merge success. Because it still
-            depends on labels, we pursue SyMerge to obtain the same effect without supervision.
+            This simple two-stage protocol consistently improves cross-task performance, showing that modest adaptation can substantially improve functional alignment. SyMerge is built to obtain the same effect without labels by adapting just one task-specific layer together with the merging coefficients.
           </p>
         </div>
       </div>
@@ -201,31 +233,27 @@
     <h2 class="title is-3">Method</h2>
     <div class="content">
       <p>
-        <b>SyMerge</b> tackles the label scarcity challenge in model merging by turning 
-        individually fine-tuned models into <i>expert teachers</i>. Instead of unstable 
-        entropy minimization, we adopt a <b>self-labeling strategy</b> that distills each 
-        teacher’s most confident predictions into the merged model.
-
+        <b>SyMerge</b> tackles the label scarcity challenge in model merging by turning individually fine-tuned models into <i>expert teachers</i>. Instead of relying on entropy minimization, we use expert-guided self-labeling to provide a stable training signal on unlabeled target data.
       </p>
+    </div>
+    <div class="columns is-variable is-6">
+      <div class="column">
+        <div class="info-card">
+          <p class="info-label">What is optimized?</p>
+          <p><b>Merging coefficients</b> determine how each expert contributes to the shared encoder, while <b>one task-specific layer</b> is adapted to the merged representation.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="info-card">
+          <p class="info-label">Why is it stable?</p>
+          <p>For each task, the merged model is trained to match confident predictions from the corresponding expert model, making the objective applicable beyond classification and more reliable than entropy minimization.</p>
+        </div>
+      </div>
+    </div>
+    <div class="content" style="margin-top: 1rem;">
       <p>
-        For each task <i>k</i>, we define a task-specific loss 
-        (<i>cross-entropy</i> for classification, <i>L1/L2</i> for regression, etc.) 
-        between the merged model’s outputs and the teacher-provided pseudo-labels 
-        on the unlabeled target data. This keeps the merged encoder aligned with expert 
-        behavior without relying on ground-truth annotations.
-
+        This minimalist design keeps the method lightweight while still realigning the shared encoder and the task-specific layer together. The final paper shows that this joint optimization is exactly what makes SyMerge scalable as the number of tasks grows.
       </p>
-      <p>
-        The only trainable parameters are:
-        <ul>
-          <li><b>Merging coefficients</b>, which balance contributions from each model.</li>
-          <li><b>A single task-specific layer</b>, adapted to the merged encoder.</li>
-        </ul>
-        Jointly updating these components encourages alignment across tasks 
-        while keeping the approach lightweight.
-
-      </p>
-
     </div>
 
   </div>
@@ -234,12 +262,15 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <!-- Experimental. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Experimental Results</h2>
+        <p class="section-note">
+          SyMerge consistently improves over prior training-free and test-time adaptive baselines across classification, dense prediction, and NLP, while staying close to the individual expert upper bound.
+        </p>
 
         <h3 class="title is-4" style="margin-top: 2rem;">Multiple Vision Tasks</h3>
+        <p class="table-note">Performance stays strong from 8 to 20 tasks on both ViT-B/32 and ViT-L/14, whereas competing methods degrade much more sharply as the task count increases.</p>
         <div class="table-container">
           <table class="table is-striped is-hoverable is-fullwidth is-narrow">
             <thead>
@@ -258,11 +289,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>Pretrained</th>
-                <td>48.0</td><td>57.1</td><td>56.0</td>
-                <td>64.5</td><td>68.1</td><td>65.1</td>
-              </tr>
               <tr>
                 <th>Individual</th>
                 <td>90.5</td><td>89.5</td><td>90.4</td>
@@ -299,7 +325,7 @@
                 <td>91.5</td><td>88.2</td><td>87.2</td>
               </tr>
               <tr>
-                <th>ISO-CTS</th>
+                <th>ISO-Merging</th>
                 <td>84.2</td><td>80.6</td><td>76.9</td>
                 <td>93.0</td><td>89.7</td><td>89.2</td>
               </tr>
@@ -307,6 +333,11 @@
                 <th>EMR-Merging</th>
                 <td>88.7</td><td>86.1</td><td>86.6</td>
                 <td>93.7</td><td>91.4</td><td>92.0</td>
+              </tr>
+              <tr>
+                <th>LOTMerging</th>
+                <td>82.7</td><td>77.3</td><td>73.1</td>
+                <td>90.5</td><td>86.2</td><td>84.1</td>
               </tr>
               <tr>
                 <th>AdaMerging</th>
@@ -339,6 +370,7 @@
         </div>
 
         <h3 class="title is-4" style="margin-top: 2rem;">Dense Prediction (NYUv2)</h3>
+        <p class="table-note">Dense prediction is a harsher regime with heterogeneous objectives. SyMerge remains competitive with individual models while other methods suffer large drops on depth and normal estimation.</p>
         <div class="table-container">
           <table class="table is-striped is-hoverable is-fullwidth is-narrow">
             <thead>
@@ -397,6 +429,7 @@
         </div>
 
         <h3 class="title is-4" style="margin-top: 2rem;">NLP (GLUE, 8 tasks)</h3>
+        <p class="table-note">On GLUE, SyMerge achieves the best average while avoiding the severe collapse that other approaches show on harder outlier tasks such as CoLA.</p>
         <div class="table-container">
           <table class="table is-striped is-hoverable is-fullwidth is-narrow">
             <thead>
@@ -439,6 +472,14 @@
                 <td>26.1</td><td>86.4</td><td>78.9</td><td>72.9</td><td>83.3</td><td>56.0</td><td>75.9</td><td>59.9</td><td>67.4</td>
               </tr>
               <tr>
+                <th>TSV-M</th>
+                <td>28.7</td><td>88.4</td><td>83.1</td><td>76.8</td><td>85.8</td><td>59.9</td><td>75.2</td><td>47.7</td><td>68.2</td>
+              </tr>
+              <tr>
+                <th>ISO-Merging</th>
+                <td>27.3</td><td>86.2</td><td>79.2</td><td>73.7</td><td>85.9</td><td>71.7</td><td>81.1</td><td>70.4</td><td>71.9</td>
+              </tr>
+              <tr>
                 <th>EMR-Merging</th>
                 <td>40.0</td><td>93.4</td><td>86.3</td><td>82.8</td><td>89.7</td><td>85.5</td><td>89.6</td><td>74.4</td><td>80.2</td>
               </tr>
@@ -452,27 +493,23 @@
               </tr>
               <tr class="is-selected">
                 <th>SyMerge</th>
-                <td>60.0 ± 0.1</td><td>93.8 ± 0.3</td><td>89.2 ± 0.0</td><td>90.4 ± 0.2</td><td>85.2 ± 1.1</td><td>84.0 ± 0.4</td><td>89.2 ± 0.2</td><td>79.1 ± 0.0</td><td>83.9 ± 0.2</td>
+                <td>60.0 ± 0.1</td><td>93.8 ± 0.3</td><td>89.2 ± 0.0</td><td>90.4 ± 0.2</td><td>85.2 ± 1.1</td><td>84.0 ± 0.4</td><td>89.2 ± 0.5</td><td>79.1 ± 0.0</td><td>83.9 ± 0.2</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
-    <!--/ Experimental. -->
-
-    
-
   </div>
 </section>
 
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Key Observations</h2>
+    <h2 class="title is-3">Additional Findings</h2>
     <div class="columns is-variable is-6">
       <div class="column">
-        <h3 class="title is-4">Cross-task transferability check</h3>
+        <h3 class="title is-4">Transferable adapted layer</h3>
         <div class="table-container">
           <table class="table is-striped is-fullwidth is-narrow">
             <thead>
@@ -509,18 +546,89 @@
             </tbody>
           </table>
         </div>
-        <p class="is-size-6 has-text-grey">Replacing zero-shot classifiers with our adapted classifier improves both merged and cross-task evaluations without additional target-task training.</p>
+        <p class="is-size-6 has-text-grey">Replacing zero-shot classifiers with the layer trained by SyMerge improves both merged and cross-task evaluations without any further target-task training, showing that the learned adaptation transfers beyond the original merged encoder.</p>
       </div>
       <div class="column">
-        <h3 class="title is-4">Effect of adjusting different layers</h3>
+        <h3 class="title is-4">Merging across disjoint basins</h3>
+        <div class="table-container">
+          <table class="table is-striped is-fullwidth is-narrow">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>EuroSAT</th>
+                <th>DTD</th>
+                <th>Avg.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Individual (EuroSAT)</th>
+                <td>98.1</td>
+                <td>3.6</td>
+                <td>50.8</td>
+              </tr>
+              <tr>
+                <th>Individual (DTD)</th>
+                <td>2.0</td>
+                <td>79.4</td>
+                <td>40.7</td>
+              </tr>
+              <tr>
+                <th>Weight Averaging</th>
+                <td>11.6</td>
+                <td>2.2</td>
+                <td>6.9</td>
+              </tr>
+              <tr>
+                <th>AdaMerging</th>
+                <td>8.6</td>
+                <td>2.1</td>
+                <td>5.4</td>
+              </tr>
+              <tr>
+                <th>Surgery</th>
+                <td>38.1</td>
+                <td>13.1</td>
+                <td>25.6</td>
+              </tr>
+              <tr class="is-selected">
+                <th>SyMerge</th>
+                <td>96.2</td>
+                <td>62.0</td>
+                <td>79.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="is-size-6 has-text-grey">The accepted paper also studies models from different initializations. Standard baselines collapse, while SyMerge still recovers strong performance by realigning representations across disjoint basins.</p>
+      </div>
+    </div>
+    <div class="columns is-centered" style="margin-top: 1.5rem;">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Why single-layer adaptation is enough</h3>
         <figure class="image">
           <img class="obs-img" src="./static/images/innerlayer.png" style="width:70%; display:block; margin: 0 auto;" alt="Impact of training task-specific layers for synergistic merging" />
           <figcaption class="is-size-6 has-text-grey">
-            Impact of training task-specific layers: single-layer/classifier training with coefficients works; multi-layer training underperforms.
+            Training one layer with the merging coefficients is already enough to capture most of the benefit; updating multiple layers tends to hurt performance by disturbing task-agnostic knowledge in the shared backbone.
           </figcaption>
         </figure>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Citation</h2>
+    <p class="section-note">
+      If you find SyMerge useful, please cite the paper below. The proceedings metadata can be updated once the camera-ready entry is online.
+    </p>
+    <pre class="citation-block"><code>@inproceedings{jung2026symerge,
+  title={SyMerge: From Non-Interference to Synergistic Merging via Single-Layer Adaptation},
+  author={Jung, Aecheon and Lee, Seunghwan and Han, Dongyoon and Hong, Sungeun},
+  booktitle={International Conference on Machine Learning (ICML)},
+  year={2026}
+}</code></pre>
   </div>
 </section>
 
@@ -529,18 +637,10 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="content">
+        <div class="content has-text-centered">
+          <p>Project page for SyMerge: From Non-Interference to Synergistic Merging via Single-Layer Adaptation.</p>
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            Website based on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>.
           </p>
         </div>
       </div>

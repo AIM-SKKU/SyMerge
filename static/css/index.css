@@ -2,6 +2,87 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.venue-badge {
+  display: inline-block;
+  margin: 0.75rem auto 0.9rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: #fff3f0;
+  border: 1px solid #f2b6a8;
+  color: #9f2f1a;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.hero-tagline {
+  max-width: 50rem;
+  margin: 0 auto 1.25rem;
+  color: #4a4a4a;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.hero-note {
+  max-width: 46rem;
+  margin: 1rem auto 0;
+  color: #6b7280;
+}
+
+.highlights-row {
+  margin-top: 1.5rem;
+}
+
+.info-card {
+  height: 100%;
+  padding: 1rem 1.05rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 14px;
+  background: #fafafa;
+  text-align: left;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.04);
+}
+
+.info-label {
+  margin-bottom: 0.45rem;
+  color: #9f2f1a;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.info-card p:last-child {
+  margin-bottom: 0;
+}
+
+.section-note {
+  margin-bottom: 1rem;
+  color: #5b6573;
+  line-height: 1.7;
+}
+
+.table-note {
+  margin: 0.4rem 0 0.9rem;
+  color: #5b6573;
+  line-height: 1.6;
+}
+
+.citation-block {
+  padding: 1rem 1.15rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f8fafc;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.citation-block code {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
@@ -173,6 +254,14 @@ body {
   .obs-img {
     width: 100%;
     max-width: 100%;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .info-card {
+    padding: 0.95rem;
   }
 }
 
