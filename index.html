@@ -93,15 +93,6 @@
                   <span>Code</span>
                   </a>
               </span>
-              <span class="link-block">
-                <a href="#bibtex"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-quote-right"></i>
-                  </span>
-                  <span>BibTeX</span>
-                </a>
-              </span>
             </div>
           </div>
         </div>
@@ -157,14 +148,14 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">Why SyMerge?</h2>
     <p class="section-note">
-      The accepted paper sharpens the case for SyMerge around three observations: training-free merging is fragile under shift, cross-task compatibility predicts merge quality, and small adaptation can already unlock synergy.
+      We motivate SyMerge around three observations: training-free merging is fragile under shift, cross-task compatibility predicts merge quality, and small adaptation can already unlock synergy.
     </p>
     <div class="columns is-vcentered">
       <div class="column is-7">
         <div class="content">
           <h3 class="title is-4">Training-free merging is brittle under corruption</h3>
           <p>
-            A first motivation in the final paper is robustness. When several task datasets are intentionally corrupted, training-free merging methods degrade sharply, exposing how brittle purely data-agnostic merging can be under realistic distribution shift.
+            We first focus on robustness. When several task datasets are intentionally corrupted, training-free merging methods degrade sharply, exposing how brittle purely data-agnostic merging can be under realistic distribution shift.
           </p>
           <p>
             This motivates test-time adaptation on unlabeled target data. SyMerge keeps that adaptive flavor, but replaces unstable entropy minimization with a more reliable expert-guided self-labeling objective.
@@ -249,7 +240,7 @@
     </div>
     <div class="content" style="margin-top: 1rem;">
       <p>
-        This minimalist design keeps the method lightweight while still realigning the shared encoder and the task-specific layer together. The final paper shows that this joint optimization is exactly what makes SyMerge scalable as the number of tasks grows.
+        This minimalist design keeps the method lightweight while still realigning the shared encoder and the task-specific layer together. We show that this joint optimization is what makes SyMerge scalable as the number of tasks grows.
       </p>
     </div>
 
@@ -597,7 +588,7 @@
             </tbody>
           </table>
         </div>
-        <p class="is-size-6 has-text-grey">The accepted paper also studies models from different initializations. Standard baselines collapse, while SyMerge still recovers strong performance by realigning representations across disjoint basins.</p>
+        <p class="is-size-6 has-text-grey">We also study models from different initializations. Standard baselines collapse, while SyMerge still recovers strong performance by realigning representations across disjoint basins.</p>
       </div>
     </div>
     <div class="columns is-centered" style="margin-top: 1.5rem;">
@@ -613,22 +604,6 @@
     </div>
   </div>
 </section>
-
-<section class="section" id="bibtex">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Citation</h2>
-    <p class="section-note">
-      If you find SyMerge useful, please cite the paper below. The proceedings metadata can be updated once the camera-ready entry is online.
-    </p>
-    <pre class="citation-block"><code>@inproceedings{jung2026symerge,
-  title={SyMerge: From Non-Interference to Synergistic Merging via Single-Layer Adaptation},
-  author={Jung, Aecheon and Lee, Seunghwan and Han, Dongyoon and Hong, Sungeun},
-  booktitle={International Conference on Machine Learning (ICML)},
-  year={2026}
-}</code></pre>
-  </div>
-</section>
-
 
 <footer class="footer">
   <div class="container">

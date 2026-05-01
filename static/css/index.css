@@ -63,21 +63,6 @@ body {
   line-height: 1.6;
 }
 
-.citation-block {
-  padding: 1rem 1.15rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  background: #f8fafc;
-  overflow-x: auto;
-  white-space: pre;
-}
-
-.citation-block code {
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-
 .footer .icon-link {
     font-size: 25px;
     color: #000;
